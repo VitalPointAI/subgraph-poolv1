@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 description: NEAR Validator - epic.poolv1.near # the name of the subgraph
-repository: https://github.com/VitalPointAI/subgraph-epic-poolv1-near.git # repo where subgraph project is stored
+repository: https://github.com/VitalPointAI/subgraph-poolv1.git # repo where subgraph project is stored
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,18 +8,13 @@ dataSources:
     name: receipts # could also be blocks
     network: near-mainnet # can choose near-mainnet or near-testnet
     source:
-      account: epic.poolv1.near # contract account you want to pull data from
-      startBlock: 19362100
+      account: poolv1.near # contract account you want to pull data from
+      startBlock: 13470022
     mapping:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mapping.ts
       entities:
-        - DepositAndStake
-        - Deposit
-        - DepositToStakingPool
-        - WithdrawAll
-        - Unstake
-        - UnstakeAll
+        - StakingPool
       receiptHandlers:
         - handler: handleReceipt # name of the receipt handler
